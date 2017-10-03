@@ -17,8 +17,9 @@ an object, it is because I want to retrieve it, not because I want to know how t
 ## Requirements/Guidelines
 
 * Use `npm` to find a package for generating id's.
+* Should be able to create separate instances of the store (not global)
 * Your module "interface" needs to allow for "creating" a store:
-  * `class`
+  * `class`, or
   * Revealing module
 * Use `beforeEach` to reduce side effects between tests
 
