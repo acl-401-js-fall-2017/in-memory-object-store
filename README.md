@@ -7,6 +7,7 @@ Create a in-memory (not persisted to file system) database library that provides
 
 Standard repository/dev stuff: README, package.json, travis-ci, tests, meaningful commits, named npm scripts, etc.
 
+* Setup scripts so that `npm test` runs linting
 
 ## Testing
 
