@@ -15,6 +15,12 @@ class Store {
         this.list.push(obj);
         return obj;
     }
+    get(id) {
+        var index = this.list.findIndex(function(x){
+            return id === x.id;
+        });
+        return this.list[index];
+    }
 }
 
 let store = null; 
@@ -32,6 +38,7 @@ describe('Make Store', () => {
     });
     it('get Method', () => {
         store.save(obj1);
-        assert.deepEqual(store.get(obj1.id), obj1);
+        var obj = store.get(obj1.id);
+        assert.deepEqual(obj, obj1);
     });
 });
