@@ -2,6 +2,9 @@ const assert = require('assert');
 const store = require('../lib/store');
 
 describe('store in memory', () => {
+    beforeEach('creates toolStore', () =>{
+
+    });
 
     it('creates a new tool and id', () => {
         let newTool = store.save({
