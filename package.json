@@ -1,0 +1,30 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": ".js",
+  "dependencies": {
+    "eslint": "^4.8.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "start": "npm run test -- -w",
+    "id": "shortid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckrountree/in-memory-object-store.git"
+  },
+  "author": "CK Rountree <jmail0207@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckrountree/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/ckrountree/in-memory-object-store#readme"
+}
