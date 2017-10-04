@@ -55,7 +55,9 @@ describe('Store class', () => {
 
         describe('.get', () => {
             it('returns the object with the id given', () => {
-                assert.equal(testStore.get(itemB.id), itemB);
+                assert.ok(
+                    deepEqual(testStore.get(itemB.id), itemB)
+                );
             });
 
             it('returns null if the id given does not exist', () => {
