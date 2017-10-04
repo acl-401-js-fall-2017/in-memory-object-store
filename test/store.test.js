@@ -22,7 +22,7 @@ describe('Store class', () => {
         });
     });
 
-    describe('.save method', () => {
+    describe('.save', () => {
 
         let newItem = null;
         beforeEach(() => {
@@ -108,13 +108,11 @@ describe('Store class', () => {
         });
     });
 
-    describe('.update method', () => {
+    describe('.update', () => {
         
         let storedItem = null;
         let itemUpdate = null;
         beforeEach(() => {
-            storedItem = null;
-            itemUpdate = null;
             storedItem = testStore.save({ item: 'batteries', cost: 4.56 });
             itemUpdate = { item: 'batteries', cost: 5.50, id: storedItem.id };
         });
@@ -135,10 +133,7 @@ describe('Store class', () => {
         it('successfully changes the item at the id given', () => {
             testStore.update(itemUpdate);
             let updatedItem = testStore.get(itemUpdate.id);
-            console.log(storedItem);
-            console.log(itemUpdate);
-            console.log(updatedItem);
-            
+
             assert.ok(
                 !deepEqual(updatedItem, storedItem) &&
                 deepEqual(updatedItem, itemUpdate)
