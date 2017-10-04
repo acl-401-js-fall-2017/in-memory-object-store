@@ -4,6 +4,9 @@ const assert = require('assert');
 const obj1 = {
     name: 'shane'
 };
+const obj2 = {
+    name: 'nikki'
+};
 
 
 class Store {
@@ -40,5 +43,10 @@ describe('Make Store', () => {
         store.save(obj1);
         var obj = store.get(obj1.id);
         assert.deepEqual(obj, obj1);
+    });
+    it('getAll Method', () => {
+        store.save(obj1);
+        store.save(obj2);
+        assert.deepEqual(store.getAll(), [obj1,obj2]);
     });
 });
