@@ -1,9 +1,9 @@
 const assert = require('assert');
-const Garbage = require('../lib/garbageConstructor');
+const GarbageCan = require('../lib/garbageConstructor');
 
 describe('object store', () => {
     it('creates new object store', () => {
-        const store = new Garbage('filth');
+        const store = new GarbageCan();
         const garbage = { name: 'filth' };
         const saved = store.save(garbage);
         assert.ok(saved._id);
