@@ -65,5 +65,10 @@ describe('object store', () => {
         assert.equal(allObjects.length, 3);
     });
 
+    it('returns empty array when no objects are present', ()=>{
+        const allObjects = newStore.getAll();
+        assert.deepEqual(allObjects, []);
+    });
+
 
 });
