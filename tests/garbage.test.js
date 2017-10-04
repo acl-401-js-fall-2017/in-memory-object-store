@@ -2,7 +2,13 @@ const assert = require('assert');
 const GarbageCan = require('../lib/garbageConstructor');
 
 describe('object store', () => {
-    it('creates new object store', () => {
+    //TODO: integrate beforeEach hook
+    it.only('creates new store', () => {
+        let newStore = new GarbageCan;
+        assert.deepEqual(newStore.list, []);
+    });
+
+    it('saves to and gets object from store', () => {
         const store = new GarbageCan();
         const garbage = { name: 'filth' };
         const saved = store.save(garbage);
