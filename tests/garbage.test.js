@@ -31,14 +31,16 @@ describe('object store', () => {
     });
 
     it('saves to and gets object from store', () => {
-        const store = new GarbageCan();
         const garbage = { name: 'filth' };
-        const saved = store.save(garbage);
+        const saved = newStore.save(garbage);
         assert.ok(saved._id);
-        const got = store.get(saved._id);
+        const got = newStore.get(saved._id);
         assert.equal(saved.name, got.name);
     });
 
+    it('removed object by id', () => {
+
+    });
 
 
 });
