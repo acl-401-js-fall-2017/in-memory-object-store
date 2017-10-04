@@ -38,8 +38,17 @@ describe('object store', () => {
         assert.equal(saved.name, got.name);
     });
 
-    it('removed object by id', () => {
+    it('removes object by id', () => {
+        const objectToSave = { name: 'grime' };
+        const idToRemove = newStore.save(objectToSave)._id;
+        const wasRemoved = newStore.remove(idToRemove);
+        assert.deepEqual(wasRemoved, { removed: true });
+    });
 
+    it('returns false value on invalid id', () => {
+        const idToRemove = 'brokenId';
+        const wasRemoved = newStore.remove(idToRemove);
+        assert.deepEqual(wasRemoved, { removed: false });
     });
 
 
