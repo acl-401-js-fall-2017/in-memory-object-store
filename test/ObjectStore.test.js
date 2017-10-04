@@ -4,11 +4,6 @@ const shortid = require('shortid');
 // eslint-disable-next-line
 const Store = require('../lib/store');
 
-
-// const fullback = { name: 'brooks', height: '76in'};
-// const midfielder = { name: 'iniesta', height: '67in'};
-// const forward = { name: 'wood', height: '70in'};
-
 // before each test, create a new store
 describe('memory store', function(){
     // eslint-disable-next-line
