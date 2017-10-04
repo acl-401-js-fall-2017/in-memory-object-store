@@ -16,5 +16,12 @@ describe('store methods', () => {
         fridgeInteraction.get();
         assert.ok(fridgeInteraction.beer._id);
     });
-
+    it('should return array of all objects, else empty', () => {
+        fridgeInteraction.getAll();
+        assert.ok(fridgeInteraction);
+    });
+    it('should remove object with said id', () => {
+        fridgeInteraction.remove();
+        assert.ok(fridgeInteraction.beer._id);
+    });
 });

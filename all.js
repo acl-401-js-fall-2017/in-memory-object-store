@@ -1,6 +1,5 @@
 const uniqid = require('uniqid');
 const fridgeArr = [];
-
 class Fridge {
     constructor(beer) {
         this.beer = beer;
@@ -13,7 +12,10 @@ class Fridge {
     get() {
         this.beer._id ? this.beer : null;
     }
+
+    getAll() {
+        fridgeArr.length ? fridgeArr : [];
+    }
 }
 
 module.exports = Fridge;
-
