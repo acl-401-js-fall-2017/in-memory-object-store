@@ -31,4 +31,15 @@ describe('memory store', ()=>{
             assert.deepEqual(testStore.getAll(), []);   
         });
     });
+
+    describe('remove object function',()=> {
+        it('should remove object with that id', ()=>{
+            const testParty = testStore.save({party: 'funky'});
+            const testCar = testStore.save({car:'red'});
+            testStore.remove(testParty._id);
+            assert.deepEqual(testStore.storesList,[testCar]);
+            
+        });
+
+    });
 });
