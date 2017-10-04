@@ -25,7 +25,7 @@ describe('memory store', ()=>{
         it('should return all the objects', () => {
             testStore.save({party: 'boring'});
             testStore.save({car:'red'});
-            assert.equal(testStore.getAll(), testStore.storesList);   
+            assert.deepEqual(testStore.getAll(), testStore.storesList);   
         });
         it('should return empty array when no objects present', () => {
             assert.deepEqual(testStore.getAll(), []);   

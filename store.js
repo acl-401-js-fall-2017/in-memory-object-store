@@ -18,8 +18,7 @@ class Store {
     }
 
     getAll() {
-        console.log('store list', this.storesList);
-        return this.storesList;
+        return this.storesList.slice();
     }
 
     remove(deleteId) {
