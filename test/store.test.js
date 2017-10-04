@@ -32,4 +32,14 @@ describe('store in memory', () => {
         let toolBox = store.getAll();
         assert.deepEqual(toolBox.length, 4);
     });
+
+    it('removes the tool and returns changed object', () => {
+        let driver =store.save({
+            name : 'screwdriver',
+            size : 'flat 4'
+        });
+        let sellTool = store.remove(driver._id);
+        assert.deepEqual(sellTool, { removed:true});
+    });
+    
 });
