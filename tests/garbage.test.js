@@ -25,6 +25,11 @@ describe('object store', () => {
         assert.deepEqual(retrievedObject, savedObject);
     });
 
+    it('returns null when id is invalid', () => {
+        const brokenGet = newStore.get('brokenId');
+        assert.equal(brokenGet, null);
+    });
+
     it('saves to and gets object from store', () => {
         const store = new GarbageCan();
         const garbage = { name: 'filth' };
@@ -33,5 +38,7 @@ describe('object store', () => {
         const got = store.get(saved._id);
         assert.equal(saved.name, got.name);
     });
+
+
 
 });
