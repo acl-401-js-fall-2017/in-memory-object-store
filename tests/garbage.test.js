@@ -20,6 +20,10 @@ describe('object store', () => {
 
     it('gets object from store', () => {
         let objectToSave = {name: 'mold'};
+        let dust = {name: 'dust'};
+        let slime = {name: 'slime'};
+        newStore.save(slime);
+        newStore.save(dust);
         const savedObject = newStore.save(objectToSave);
         const retrievedObject = newStore.get(savedObject._id);
         assert.deepEqual(retrievedObject, savedObject);
