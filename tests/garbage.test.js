@@ -74,12 +74,12 @@ describe('object store', () => {
         assert.deepEqual(allObjects, []);
     });
 
-    it('updates an existing object', () => {
-        const existingObject = { name: 'dirt' };
+    it('updates an existing object when given an object with the same id', () => {
+        const existingObject = { name: 'crud' };
         const existingObjectId = newStore.save(existingObject);
-        const newObject = { name: 'filth' };
-        const updatedObject = newStore.update(existingObjectId, newObject);
-        assert.equal(updatedObject.name, newObject.name);
+        const newObject = { name: 'filth', _id: existingObjectId };
+        newStore.update(newObject);
+        assert.equal( newStore.get(existingObjectId), newObject );
     });
 
 
