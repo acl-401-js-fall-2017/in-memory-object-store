@@ -44,8 +44,9 @@ describe('In-Memory Store', () => {
             assert.deepEqual(store.storeList, newObjectArray );
         });
 
-        it.skip('return empty object array', () => {
-            let emptyArray = store.getAll();
+        it('return empty object array', () => {
+            let emptyArray = store.getAll([]);
+
             assert.deepEqual(emptyArray, []);
         });
     
@@ -53,8 +54,18 @@ describe('In-Memory Store', () => {
 
     describe('removes id', () => {
         it('remove object with id', () => {
-            
+            store.save(dog);
+            let removeObject = store.remove(dog._id);
+
+            assert.deepEqual(removeObject, { removed: true } );
         });
+
+        it('id does not exist', () => {
+            let removeResult = store.remove('does not exist');
+
+            assert.deepEqual(removeResult, { removed: false });
+        });
+
     });
 
 });
