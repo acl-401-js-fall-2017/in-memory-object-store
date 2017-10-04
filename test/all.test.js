@@ -1,5 +1,4 @@
 const assert = require('assert');
-// const uniqid = require('uniqid');
 const Fridge = require('../all');
 
 describe('store methods', () => {
@@ -11,6 +10,10 @@ describe('store methods', () => {
     });
     it('should create an id on the object and return it', () => {
         fridgeInteraction.save();
+        assert.ok(fridgeInteraction.beer._id);
+    });
+    it('should return the object with an id, else null', () => {
+        fridgeInteraction.get();
         assert.ok(fridgeInteraction.beer._id);
     });
 
