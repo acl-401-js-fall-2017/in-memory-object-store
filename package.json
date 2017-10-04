@@ -1,0 +1,28 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha tests",
+    "pretest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acl-401-js-fall-2017/in-memory-object-store.git"
+  },
+  "author": "Maryus Martsyalis <martsyalis@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acl-401-js-fall-2017/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/acl-401-js-fall-2017/in-memory-object-store#readme",
+  "devDependencies": {
+    "lint": "^1.1.2",
+    "mocha": "^4.0.0"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8"
+  }
+}
