@@ -66,7 +66,7 @@ describe('object store', () => {
 
         const allObjects = newStore.getAll();
 
-        assert.equal(allObjects.length, 3);
+        assert.deepEqual(allObjects, [ mold, poison, grime ] );
     });
 
     it('returns empty array when no objects are present', ()=>{
