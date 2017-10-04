@@ -27,6 +27,20 @@ class Store {
     getAll() {
         return this.list;
     }
+    remove(id) {
+        var listSize = this.list.length;
+        var list = this.list.filter(function(x){
+            return x.id !== id;
+        });
+
+        this.list = list;
+        if(listSize === this.list.length){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
 
 let store = null; 
