@@ -22,18 +22,16 @@ class Store {
     }
 
     remove(deleteId) {
-        const originalLength = this.storesList.length;
         const deleteIndex = this.storesList.findIndex((value) =>{
             return value._id === deleteId;
         });
-        this.storesList.splice(deleteIndex,1);
-        if (originalLength === this.storesList.length) {
-            return { removed: false };
-        } else {
+        if (deleteIndex !== -1) {
+            this.storesList.splice(deleteIndex,1);
             return { removed: true };
+        } else {
+            return { removed: false };
         }
     }
-
 }
 
 module.exports = Store;

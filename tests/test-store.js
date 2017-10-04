@@ -40,6 +40,16 @@ describe('memory store', ()=>{
             assert.deepEqual(testStore.storesList,[testCar]);
             
         });
-
+        it('should return { removed: false } if nothing to remove', ()=>{
+            testStore.save({party: 'funky'});
+            testStore.save({car:'red'});
+            assert.deepEqual(testStore.remove('doesntExist'),{ removed: false });
+        });
+        it('should return { removed: true } if something to remove', ()=>{
+            testStore.save({car:'red'});
+            testStore.save({party: 'funky'});
+            const testCar = testStore.save({car:'red'});
+            assert.deepEqual(testStore.remove(testCar._id),{ removed: true });
+        });
     });
 });
