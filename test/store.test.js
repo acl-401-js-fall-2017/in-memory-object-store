@@ -37,4 +37,24 @@ describe('In-Memory Store', () => {
 
     });
 
+    describe('Get All', () => {
+        it('return all objects', () => {
+            let newObjectArray = store.getAll();
+
+            assert.deepEqual(store.storeList, newObjectArray );
+        });
+
+        it.skip('return empty object array', () => {
+            let emptyArray = store.getAll();
+            assert.deepEqual(emptyArray, []);
+        });
+    
+    });
+
+    describe('removes id', () => {
+        it('remove object with id', () => {
+            
+        });
+    });
+
 });
