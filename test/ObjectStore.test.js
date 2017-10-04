@@ -9,20 +9,32 @@ const Store = require('../lib/store');
 // const midfielder = { name: 'iniesta', height: '67in'};
 // const forward = { name: 'wood', height: '70in'};
 
-
+// before each test, create a new store
 describe('memory store', function(){
     // eslint-disable-next-line
     let store = null;
+    
     beforeEach(() => {
         store = new Store ();
     });
-
-    describe('saving with an id', () => {
+    
+    describe('save object with an id', () => {
         it('generates an id', () => {
-            let goalie = store.save({ name: 'howard', height: '75in'});
+            let goalieObj = store.save({ name: 'howard', height: '75in'});
             // eslint-disable-next-line
-            assert.ok(goalie._id);
+            assert.ok(goalieObj._id);
+        });
+    });
+    describe('get object with the id', () => {
+        it('gets and returns the object with its id', () => {
+            const goalieObj = store.save({ name: 'howard', height: '75in'});
+            let goalieObjWithId = store.get(goalieObj._id);
+            assert.ok(goalieObjWithId, goalieObj);
         });
 
+        it('gets and returns null if object does not have an id', () => {
+            let goalieObjWithoutId = store.get();
+            assert.equal(goalieObjWithoutId, null);
+        });
     });
 });
