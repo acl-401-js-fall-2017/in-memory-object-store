@@ -14,8 +14,8 @@ describe('object store', () => {
     it('saves object to store', () => {
         let objectToSave = {name: 'mold'};
         newStore.save(objectToSave);
-        assert.equal(typeof newStore.list.id, 'string');
-        assert.deepEqual(objectToSave.name, newStore.name);
+        assert.equal(typeof newStore.list[0].id, 'string');
+        assert.deepEqual(objectToSave.name, newStore[0].name);
     });
 
     it.skip('gets object from store', () => {
