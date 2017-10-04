@@ -19,9 +19,9 @@ describe('object store', () => {
     });
 
     it('gets object from store', () => {
-        let objectToSave = {name: 'mold'};
-        let dust = {name: 'dust'};
-        let slime = {name: 'slime'};
+        const objectToSave = {name: 'mold'};
+        const dust = {name: 'dust'};
+        const slime = {name: 'slime'};
         newStore.save(slime);
         newStore.save(dust);
         const savedObject = newStore.save(objectToSave);
@@ -72,6 +72,14 @@ describe('object store', () => {
     it('returns empty array when no objects are present', ()=>{
         const allObjects = newStore.getAll();
         assert.deepEqual(allObjects, []);
+    });
+
+    it('updates an existing object', () => {
+        const existingObject = { name: 'dirt' };
+        const existingObjectId = newStore.save(existingObject);
+        const newObject = { name: 'filth' };
+        const updatedObject = newStore.update(existingObjectId, newObject);
+        assert.equal(updatedObject.name, newObject.name);
     });
 
 
