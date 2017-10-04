@@ -12,6 +12,7 @@ class Store {
     }
     save(obj) {
         obj.id = shortid.generate();
+        this.list.push(obj);
         return obj;
     }
 }
@@ -28,5 +29,9 @@ describe('Make Store', () => {
     it('Save Method', () => {
         store.save(obj1);
         assert.deepEqual(typeof obj1.id, 'string');
+    });
+    it('get Method', () => {
+        store.save(obj1);
+        assert.deepEqual(store.get(obj1.id), obj1);
     });
 });
