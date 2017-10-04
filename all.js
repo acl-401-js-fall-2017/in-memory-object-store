@@ -1,21 +1,24 @@
 const uniqid = require('uniqid');
-const fridgeArr = [];
 class Fridge {
-    constructor(beer) {
-        this.beer = beer;
+    constructor() {
+        this.shelf = [];
     }
-    save() {
-        this.beer._id = uniqid();
-        fridgeArr.push(this.beer);
-        return this.beer;
+    save(beer) {
+        beer._id = uniqid();
+        this.shelf.push(beer);
+        return beer;
     }
-    get() {
-        this.beer._id ? this.beer : null;
-    }
+    // get(id) {
+    //     let beerId = this.shelf.find(id);
+    //     beerId ? id : null;
+    // }
 
-    getAll() {
-        fridgeArr.length ? fridgeArr : [];
-    }
+    // getAll() {
+    //     this.shelf.length ? this.shelf : [];
+    // }
+    // remove() {
+
+    // }
 }
 
 module.exports = Fridge;
