@@ -20,4 +20,16 @@ describe('store in memory', () => {
         assert.deepEqual(foundTool, impact);
     });
 
+    it('returns an array of all tools', () => {
+        store.save({
+            name : 'pry bar',
+            size : '36 inch'
+        });
+        store.save({
+            name : 'wrench',
+            size : '15mm'
+        });
+        let toolBox = store.getAll();
+        assert.deepEqual(toolBox.length, 4);
+    });
 });
