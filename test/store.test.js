@@ -20,8 +20,9 @@ describe('In-Memory Store', () => {
     });
 
     describe('Get', () => {
-        it.skip('gets object with id', () => {
-            let objectWithId = store.get(dog._id);
+        it('gets object with id', () => {
+            const dogObject = store.save(dog);
+            let objectWithId = store.get(dogObject._id);
 
             assert.equal(objectWithId, dog);
 
@@ -29,7 +30,9 @@ describe('In-Memory Store', () => {
 
         it('gets object with no id', () => {
             let objectWithNoId = store.get();
+
             assert.equal(objectWithNoId, null);
+
         });
 
     });
