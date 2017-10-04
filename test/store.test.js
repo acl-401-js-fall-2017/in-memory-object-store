@@ -14,7 +14,22 @@ describe('In-Memory Store', () => {
             let dogObject = store.save(dog);
             
             assert.ok(dogObject._id);
-            
+
+        });
+
+    });
+
+    describe('Get', () => {
+        it.skip('gets object with id', () => {
+            let objectWithId = store.get(dog._id);
+
+            assert.equal(objectWithId, dog);
+
+        });
+
+        it('gets object with no id', () => {
+            let objectWithNoId = store.get();
+            assert.equal(objectWithNoId, null);
         });
 
     });
