@@ -1,8 +1,11 @@
 const assert = require('assert');
-const store = require('../lib/store');
+const getStore = require('../lib/store');
 
 describe('store in memory', () => {
+    let store = null;
+
     beforeEach('creates toolStore', () =>{
+        store = getStore();
 
     });
 
@@ -33,7 +36,7 @@ describe('store in memory', () => {
             size : '15mm'
         });
         let toolBox = store.getAll();
-        assert.deepEqual(toolBox.length, 4);
+        assert.deepEqual(toolBox.length, 2);
     });
 
     it('removes the tool and returns changed object', () => {

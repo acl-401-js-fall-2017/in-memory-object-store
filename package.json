@@ -4,6 +4,8 @@
   "description": "In Memory Object Store ===",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run lint",
+    "lint": "eslint .",
     "test": "mocha",
     "start": "npm run test -- -w"
   },
