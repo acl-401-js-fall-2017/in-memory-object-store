@@ -37,4 +37,26 @@ describe('memory store', function(){
             assert.equal(goalieObjWithoutId, null);
         });
     });
+
+    describe('get all objects ', () => {
+        it('gets and returns an array of all objects', () => {
+            const goalieObj = store.save({ name: 'howard', height: '75in'});
+            let goalieObjGetAll = store.getAll(goalieObj);
+            assert.ok(goalieObjGetAll, goalieObj);
+        });
+        
+        it('gets and returns null if object does not have an id', () => {
+            let goalieObjGetAll = store.getAll([]);
+            assert.deepEqual(goalieObjGetAll, []);
+        });
+    });
+
+    describe('remove an object', () => {
+        it('removes an object from the array', () => {
+            const goalieObj = store.save({ name: 'howard', height: '75in'});
+            let goalieObjRemove = store.remove(goalieObj._id);
+            assert.ok(goalieObjRemove, goalieObj._id);
+
+        });
+    });
 });
