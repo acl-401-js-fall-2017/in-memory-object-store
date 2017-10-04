@@ -98,7 +98,7 @@ describe('Store class', () => {
             assert.deepEqual(testStore.remove(newItem.id), { remove: true });
         });
 
-        it('returns {remove:false] when a bad id is given', () => {
+        it('returns { remove: false } when a bad id is given', () => {
             assert.deepEqual(testStore.remove('badId'), { remove: false });
         });
 
