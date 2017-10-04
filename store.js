@@ -17,7 +17,11 @@ class Store {
         });
     }
 
-    
+    getAll() {
+        console.log('store list', this.storesList);
+        return this.storesList;
+    }
+
 }
 
 module.exports = Store;
