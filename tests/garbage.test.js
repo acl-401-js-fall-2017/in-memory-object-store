@@ -18,10 +18,11 @@ describe('object store', () => {
         assert.equal(objectToSave.name, newStore.list[0].name);
     });
 
-    it.skip('gets object from store', () => {
-        const getMe = {name: 'poison', _id: 'foo'};
-        const retrievedObject = newStore.get('foo');
-        assert.deepEqual(retrievedObject, getMe);
+    it('gets object from store', () => {
+        let objectToSave = {name: 'mold'};
+        const getId = newStore.save(objectToSave).id;
+        const objectToGet = newStore.get(getId);
+        assert.equal(objectToSave.name, objectToGet.name);
     });
 
     it.skip('saves to and gets object from store', () => {
