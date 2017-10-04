@@ -52,4 +52,15 @@ describe('Make Store', () => {
         store.save(obj2);
         assert.deepEqual(store.getAll(), [obj1,obj2]);
     });
+    it('remove Method', () => {
+        store.save(obj1);
+        store.save(obj2);
+        assert.deepEqual(store.remove(obj1.id), true);
+    });
+    it('remove Method2', () => {
+        store.save(obj1);
+        store.save(obj2);
+        store.remove(obj1.id);
+        assert.deepEqual(store.list, [obj2]);
+    });
 });
