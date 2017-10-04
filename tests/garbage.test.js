@@ -11,6 +11,12 @@ describe('object store', () => {
         assert.deepEqual(newStore.list, []);
     });
 
+    it('gets object from store', () => {
+        const getMe = {name: 'poison', _id: 'foo'};
+        const retrievedObject = newStore.get('foo');
+        assert.deepEqual(retrievedObject, getMe);
+    });
+
     it('saves to and gets object from store', () => {
         const store = new GarbageCan();
         const garbage = { name: 'filth' };
