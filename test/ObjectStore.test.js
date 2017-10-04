@@ -24,6 +24,9 @@ class Store {
         });
         return this.list[index];
     }
+    getAll() {
+        return this.list;
+    }
 }
 
 let store = null; 
