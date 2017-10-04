@@ -20,5 +20,8 @@
   "homepage": "https://github.com/DaNish808/in-memory-object-store#readme",
   "devDependencies": {
     "mocha": "^4.0.0"
+  },
+  "dependencies": {
+    "uniqid": "^4.1.1"
   }
 }
