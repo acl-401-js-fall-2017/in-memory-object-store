@@ -48,10 +48,6 @@ describe('Store class', () => {
             itemB = null,
             itemC = null;
         beforeEach(() => {
-            itemA = null;
-            itemB = null;
-            itemC = null;
-
             itemA = testStore.save({ item: 'batteries', cost: 4.56 });
             itemB = testStore.save({ item: 'chocolate milk', cost: 2.5 });
             itemC = testStore.save({ item: 'banana', cost: 0.98 });
@@ -109,6 +105,44 @@ describe('Store class', () => {
         it('successfully removes an item and makes it un-gettable', () => {
             testStore.remove(newItem.id);
             assert.equal(testStore.get(newItem.id), null);
+        });
+    });
+
+    describe('.update method', () => {
+        
+        let storedItem = null;
+        let itemUpdate = null;
+        beforeEach(() => {
+            storedItem = null;
+            itemUpdate = null;
+            storedItem = testStore.save({ item: 'batteries', cost: 4.56 });
+            itemUpdate = { item: 'batteries', cost: 5.50, id: storedItem.id };
+        });
+
+        it('returns the update object', () => {
+            assert.equal(testStore.update(itemUpdate), itemUpdate);
+        });
+
+        it('returns an error when item given does not have an id', () => {
+            assert.ok(testStore.update({ item: 'batteries', cost: 4.56 }) instanceof Error);
+        });
+
+        it('returns an error when the id of the item given does not exist', () => {
+            itemUpdate.id = 'not an id';
+            assert.ok(testStore.update(itemUpdate) instanceof Error);
+        });
+
+        it('successfully changes the item at the id given', () => {
+            testStore.update(itemUpdate);
+            let updatedItem = testStore.get(itemUpdate.id);
+            console.log(storedItem);
+            console.log(itemUpdate);
+            console.log(updatedItem);
+            
+            assert.ok(
+                !deepEqual(updatedItem, storedItem) &&
+                deepEqual(updatedItem, itemUpdate)
+            );
         });
     });
 });
