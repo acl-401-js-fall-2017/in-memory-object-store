@@ -1,7 +1,5 @@
 const assert = require('assert');
 // eslint-disable-next-line
-const shortid = require('shortid');
-// eslint-disable-next-line
 const Store = require('../lib/store');
 
 // before each test, create a new store
