@@ -22,11 +22,10 @@ describe('object store', () => {
         let objectToSave = {name: 'mold'};
         const savedObject = newStore.save(objectToSave);
         const retrievedObject = newStore.get(savedObject._id);
-
         assert.deepEqual(retrievedObject, savedObject);
     });
 
-    it.skip('saves to and gets object from store', () => {
+    it('saves to and gets object from store', () => {
         const store = new GarbageCan();
         const garbage = { name: 'filth' };
         const saved = store.save(garbage);
