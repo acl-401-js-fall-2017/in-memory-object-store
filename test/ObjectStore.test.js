@@ -1,9 +1,9 @@
 //const shortid = require('shortid');
 const assert = require('assert');
 
-// const obj1 = {
-//     name: "shane"
-// };
+const obj1 = {
+    name: 'shane'
+};
 
 
 class Store {
@@ -20,5 +20,8 @@ beforeEach(function () {//Creates store unique object before each test.
 describe('Make Store', () => {
     it('Makes new store', () => {
         assert.deepEqual(store.list, []);
+    });
+    it('Save Method', () => {
+        assert.deepEqual(typeof obj1.id, 'string');
     });
 });
