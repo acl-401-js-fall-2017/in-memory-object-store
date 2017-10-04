@@ -39,7 +39,7 @@ describe('store in memory', () => {
             size : 'flat 4'
         });
         let sellTool = store.remove(driver._id);
-        assert.deepEqual(sellTool, { removed:true});
+        assert.deepEqual(sellTool, { removed:true });
     });
-    
+
 });
