@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/acl-401-js-fall-2017/in-memory-object-store#readme",
   "devDependencies": {
-    "lint": "^1.1.2",
     "mocha": "^4.0.0"
   },
   "dependencies": {
+    "eslint": "^4.8.0",
     "shortid": "^2.2.8"
   }
 }
