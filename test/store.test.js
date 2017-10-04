@@ -11,4 +11,13 @@ describe('store in memory', () => {
         assert.ok(newTool._id);
     });
 
+    it('finds a tool by id and returns tool object', () => {
+        let impact = store.save({
+            name : 'air impact',
+            size : '1/2 inch'
+        });
+        let foundTool = store.get(impact._id);
+        assert.deepEqual(foundTool, impact);
+    });
+
 });
