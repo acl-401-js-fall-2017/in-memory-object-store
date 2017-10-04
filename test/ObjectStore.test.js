@@ -1,50 +1,17 @@
-const shortid = require('shortid');
+const Store = require('../lib/store');
 const assert = require('assert');
-
-const obj1 = {
-    name: 'shane'
-};
-const obj2 = {
-    name: 'nikki'
-};
-
-
-class Store {
-    constructor() {
-        this.list = [];
-    }
-    save(obj) {
-        obj.id = shortid.generate();
-        this.list.push(obj);
-        return obj;
-    }
-    get(id) {
-        var index = this.list.findIndex(function(x){
-            return id === x.id;
-        });
-        return this.list[index];
-    }
-    getAll() {
-        return this.list;
-    }
-    remove(id) {
-        var listSize = this.list.length;
-        var list = this.list.filter(function(x){
-            return x.id !== id;
-        });
-
-        this.list = list;
-        if(listSize === this.list.length){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-}
-
+let obj1;
+let obj2;
 let store = null; 
+
+
 beforeEach(function () {//Creates store unique object before each test.
+    obj1 = {
+        name: 'shane'
+    };
+    obj2 = {
+        name: 'nikki'
+    };
     store = new Store();
 });
 
