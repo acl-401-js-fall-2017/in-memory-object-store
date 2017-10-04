@@ -15,7 +15,7 @@ describe('memory store', function(){
     
     describe('save object with an id', () => {
         it('generates an id', () => {
-            let goalieObj = store.save({ name: 'howard', height: '75in'});
+            const goalieObj = store.save({ name: 'howard', height: '75in'});
             // eslint-disable-next-line
             assert.ok(goalieObj._id);
         });
@@ -23,12 +23,12 @@ describe('memory store', function(){
     describe('get object with the id', () => {
         it('gets and returns the object with its id', () => {
             const goalieObj = store.save({ name: 'howard', height: '75in'});
-            let goalieObjWithId = store.get(goalieObj._id);
+            const goalieObjWithId = store.get(goalieObj._id);
             assert.ok(goalieObjWithId, goalieObj);
         });
 
         it('gets and returns null if object does not have an id', () => {
-            let goalieObjWithoutId = store.get();
+            const goalieObjWithoutId = store.get();
             assert.equal(goalieObjWithoutId, null);
         });
     });
@@ -36,12 +36,12 @@ describe('memory store', function(){
     describe('get all objects ', () => {
         it('gets and returns an array of all objects', () => {
             const goalieObj = store.save({ name: 'howard', height: '75in'});
-            let goalieObjGetAll = store.getAll(goalieObj);
-            assert.ok(goalieObjGetAll, goalieObj);
+            const goalieObjGetAll = store.getAll(goalieObj);
+            assert.equal(goalieObjGetAll, goalieObj);
         });
         
         it('gets and returns null if object does not have an id', () => {
-            let goalieObjGetAll = store.getAll([]);
+            const goalieObjGetAll = store.getAll([]);
             assert.deepEqual(goalieObjGetAll, []);
         });
     });
@@ -49,7 +49,7 @@ describe('memory store', function(){
     describe('remove an object', () => {
         it('removes an object from the array', () => {
             const goalieObj = store.save({ name: 'howard', height: '75in'});
-            let goalieObjRemove = store.remove(goalieObj._id);
+            const goalieObjRemove = store.remove(goalieObj._id);
             assert.ok(goalieObjRemove, goalieObj._id);
 
         });
