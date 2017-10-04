@@ -1,13 +1,23 @@
 const shortid = require('shortid');
-const storesList= [];
 
-function save(object) {
-    object._id = shortid.generate();
-    storesList.push(object);
-    return object;
+class Store {
+    constructor() {
+        this.storesList= [];
+    }
+
+    save(object) {
+        object._id = shortid.generate();
+        this.storesList.push(object);
+        return object;
+    }
+
+    get(requestedId) {
+        return this.storesList.find((value) =>{
+            return value._id === requestedId;
+        });
+    }
+
+    
 }
 
-module.exports = {
-    storesList,  
-    save
-};
+module.exports = Store;

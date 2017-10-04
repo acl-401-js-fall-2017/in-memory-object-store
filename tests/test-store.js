@@ -2,24 +2,22 @@ const store = require('../store');
 const assert = require('assert');
 
 describe('memory store', ()=>{
-    // beforeEach( (store)=> {
-    //     store.storeList =[];
-    // });
+    let testStore = null;
+    beforeEach(() => {
+        testStore = new store;
+    });
 
     describe('save function',()=>{
         it('should generate id\'s',()=>{
-            const savedObject = store.save({party: 'cool'});
+            const savedObject = testStore.save({party: 'cool'});
             assert.ok(savedObject._id); 
         });
     });
 
     describe('get object function', ()=> {
-        const testParty = store.save({party: 'funky'});
-        store.save({ party: 'lame'});
         it('should return the object with the id', ()=>{
-            assert.equals(store.get(testParty._id),testParty);
-
-
+            const testParty = testStore.save({party: 'funky'});
+            assert.equal(testStore.get(testParty._id),testParty);
         });
     });
 });
