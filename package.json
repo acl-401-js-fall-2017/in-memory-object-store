@@ -1,0 +1,29 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristinaMills/in-memory-object-store.git"
+  },
+  "author": "Christina Mills <chrimills@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristinaMills/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/ChristinaMills/in-memory-object-store#readme",
+  "dependencies": {
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.0"
+  }
+}
