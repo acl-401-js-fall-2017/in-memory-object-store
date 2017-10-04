@@ -51,5 +51,19 @@ describe('object store', () => {
         assert.deepEqual(wasRemoved, { removed: false });
     });
 
+    it('returns array of all objects', () => {
+        const mold = { name: 'mold' };
+        const poison = { name: 'poison' };
+        const grime = { name: 'grime' };
+
+        newStore.save(mold);
+        newStore.save(poison);
+        newStore.save(grime);
+
+        const allObjects = newStore.getAll();
+
+        assert.equal(allObjects.length, 3);
+    });
+
 
 });
