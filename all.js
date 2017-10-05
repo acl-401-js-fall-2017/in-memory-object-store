@@ -8,17 +8,11 @@ class Fridge {
         this.shelf.push(beer);
         return beer;
     }
-    // get(id) {
-    //     let beerId = this.shelf.find(id);
-    //     beerId ? id : null;
-    // }
 
-    // getAll() {
-    //     this.shelf.length ? this.shelf : [];
-    // }
-    // remove() {
-
-    // }
+    get(id) {
+        const beerReturn = this.shelf.find(beer => beer._id === id);
+        return beerReturn || null;
+    }
 }
 
 module.exports = Fridge;

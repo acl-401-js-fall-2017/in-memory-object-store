@@ -1,27 +1,31 @@
 const assert = require('assert');
 const Fridge = require('../all');
 
-describe('store methods', () => {
+describe('store', () => {
+    describe('CRUD', () => {
+        let fridge = null;
+        beforeEach(() => {
+            fridge = new Fridge();
+        });
 
-    const beer = {name: 'Cantillon'};
-    let myFridge = null;
-    beforeEach(() => {
-        myFridge = new Fridge ();
+        it('adds _id to saved beer', () => {
+            const beer = { name: 'Violet Mer', brewery: 'de Garde' };
+            const saved = fridge.save(beer);
+            assert.ok(saved._id);
+        });
+
+        it('gets a saved beer', () => {
+            const beer = { name: 'Violet Mer', brewery: 'de Garde' };
+            const saved = fridge.save(beer);
+            const got = fridge.get(saved._id);
+            assert.deepEqual(got, saved);        
+        });
+
+        it('returns null if get id not found', () => {
+            const got = fridge.get('bad id');
+            assert.strictEqual(got, null);
+        });
+
+        
     });
-    it('should create an id on the object and return it', () => {
-        let savedBeer = myFridge.save(beer);
-        assert.ok(savedBeer);
-    });
-    it('should return the object with an id, else null', () => {
-        let matchedBeer = myFridge.get(beer._id);
-        assert.ok(matchedBeer);
-    });
-    // it('should return array of all objects, else empty', () => {
-    //     myFridge.getAll();
-    //     assert.ok(myFridge);
-    // });
-    // it('should remove object with said id', () => {
-    //     myFridge.remove();
-    //     assert.ok(myFridge.beer._id);
-    // });
 });
