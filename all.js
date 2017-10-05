@@ -13,6 +13,13 @@ class Fridge {
         const beerReturn = this.shelf.find(beer => beer._id === id);
         return beerReturn || null;
     }
+
+    remove(id) {
+        const index = this.shelf.findIndex(beer => beer._id === id);
+        if(index === -1) return { removed: false };
+        this.shelf.splice(index, 1);
+        return { removed: true };
+    }
 }
 
 module.exports = Fridge;
