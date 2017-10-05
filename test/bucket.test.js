@@ -13,16 +13,18 @@ describe ('testing constructor function', () => {
     });
     
     it ('should create an id property', () => {
-        bucket.getId();
-        assert.ok(true); 
+        const obj = bucket.save(food);
+        const id = obj._id;
+        assert.ok(id); 
+    });
+
+    it ('should check to make sure the object was saved', () => {
+        const obj = bucket.save(food);
+        const getObj = bucket.get(obj._id);
+        assert.deepEqual(getObj, obj);
     });
     
-    it.skip ('should attach an id to the object', () => {
-        bucket.food.attachId();
-        assert.ok(true);
-        // const cow = bucket.push(food);
-
-    });
+    
 });
 
 // creates an `_id` property on the object
