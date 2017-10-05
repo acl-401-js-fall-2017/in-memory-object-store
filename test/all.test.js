@@ -36,5 +36,10 @@ describe('store', () => {
             const got = fridge.get(saved._id);
             assert.equal(got, null);
         });
+        
+        it('returns { removed: false } when object to remove not exists', () => {
+            const status = fridge.remove('bad id');
+            assert.equal(status.removed, false);
+        });
     });
 });
