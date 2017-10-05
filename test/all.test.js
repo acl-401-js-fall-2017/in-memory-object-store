@@ -26,6 +26,15 @@ describe('store', () => {
             assert.strictEqual(got, null);
         });
 
-        
+        it('removes an object', () => {
+            const beer = { name: 'Violet Mer', brewery: 'de Garde' };
+            const saved = fridge.save(beer);
+
+            const status = fridge.remove(saved._id);
+            assert.equal(status.removed, true);
+
+            const got = fridge.get(saved._id);
+            assert.equal(got, null);
+        });
     });
 });
