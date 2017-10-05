@@ -1,7 +1,7 @@
 const assert = require('assert');
 const Fridge = require('../all');
 
-describe('store', () => {
+describe('fridge', () => {
     describe('CRUD', () => {
         let fridge = null;
         beforeEach(() => {
@@ -40,6 +40,30 @@ describe('store', () => {
         it('returns { removed: false } when object to remove not exists', () => {
             const status = fridge.remove('bad id');
             assert.equal(status.removed, false);
+        });
+    });
+    describe('get all', () => {
+        
+        let fridge = null;
+        before(() => {
+            fridge = new Fridge();
+        });
+
+        it('returns empty array on new fridge', () => {
+            assert.deepEqual(fridge.getAll(), []);
+        });
+
+        it('returns list of saved beers', () => {
+            const beer1 = fridge.save({ name: 'Juicy Jr.' });
+            const beer2 = fridge.save({ name: 'Blueberry Muffin' });
+            const beers = fridge.getAll();
+            assert.deepEqual(beers, [beer1, beer2]);
+        });
+
+        it('does not return actual fridge array', () => {
+            const beers = fridge.getAll();
+            beers.push({ name: 'should be in fridge' });
+            assert.equal(fridge.getAll().length, 2);
         });
     });
 });
