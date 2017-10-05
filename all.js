@@ -20,6 +20,10 @@ class Fridge {
         this.shelf.splice(index, 1);
         return { removed: true };
     }
+    
+    getAll() {
+        return this.shelf.slice();
+    }
 }
 
 module.exports = Fridge;
