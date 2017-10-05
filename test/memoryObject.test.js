@@ -1,22 +1,25 @@
 const assert = require('assert');
 const Store = require('../lib/memoryObject');
 
-describe.skip('store in memory', () => {
+describe('store in memory', () => {
+    
     describe('operations',() =>{
-        const car = {make: 'Honda',model:'Civic'};
         let store = null;
         beforeEach(() => {
-            store = new Store(car);
+            store = new Store(); 
         });
 
-        it('creates a new car and id', () => {
-            store.save();
-            assert.ok(car._id);
+        it('saves a new car object and creates a unique id', () => {
+            const car = {make: 'Honda',model:'Civic'};
+            let savedCar = store.save(car);
+            assert.ok(savedCar._id);
         });
 
         it('finds car by id and returns object', () => {
-            let foundCar = store.get(car._id);
-            assert.equal(foundCar, car);
+            const car = {make: 'Honda',model:'Civic'};
+            let savedCar = store.save(car);
+            let fetched = store.get(savedCar._id);
+            assert.equal(fetched, savedCar);
         });
 
         it('returns null if car id does not exist', () =>{
@@ -25,32 +28,24 @@ describe.skip('store in memory', () => {
         });
 
         it('removes a car with given id', () => {
-            let removedCar = store.remove(car._id);
-            assert.equal(removedCar.removed, true);
+            const car = {make: 'Honda',model:'Civic'};
+            let savedCar = store.save(car);
+            let removedCar = store.remove(savedCar._id);
+            assert.equal(removedCar.removed, true); //???
         });
 
         it('returns {removed: false} with invalid id', () => {
             let removedCar = store.remove('invalid_id');
-            assert.equal(removedCar.removed, false);
+            assert.equal(removedCar.removed, false); // ???
         });
-    });
-    
-    describe('get all',() => {
-        let store = null;
-        before(() => {
-            store = new Store();
-        });
-        
-        it('get all', () => {
-            const car1 = new Store({make: 'Honda',model:'Civic'});
-            const car2 = new Store({make: 'Toyota',model:'Corolla'});
-            store.save();
+
+        it('fetches the number of all objects saved in db', () => {
+            const car1 = store.save({make: 'Honda',model:'Civic'});
+            const car2 = store.save({make: 'Toyota',model:'Corolla'});
             const allCars = store.getAll();
-            assert.deepEqual(allCars,[car1,car2]);    
+            assert.deepEqual(allCars.length,2);    
         });
+    
     });
-   
+      
 });
-
-
- 
