@@ -29,8 +29,24 @@ describe ('testing constructor function', () => {
 
     it ('should return null if the id does not exist', () => {
         const obj = bucket.save(food);
-        const getObj = bucket.get(66);
+        const getObj = bucket.get(66); //assigning a random id number
         assert.equal(getObj, null);
+    });
+
+    it.skip ('should return an array of all objects', () => {
+        const food2 = 'pizza';
+        const food3 = 'beer';
+        bucket.save(food);
+        bucket.save(food2);
+        bucket.save(food3);
+
+        const getAllObj = bucket.getAll();
+        // assert.equal(getAllObj[0].name, 'salad');
+    });
+
+    it ('should return an empty array from getAll when no objects', () => {
+        const getAllObj = bucket.getAll();
+        assert.deepEqual(getAllObj, []);
     });
     
     
