@@ -1,5 +1,4 @@
 const assert = require('assert');
-var shortid = require('shortid');
 const Bucket = require('../lib/bucket');
 
 
@@ -23,9 +22,29 @@ describe ('testing constructor function', () => {
         const getObj = bucket.get(obj._id);
         assert.deepEqual(getObj, obj);
     });
+
+    // it ('should return the object that has that id', () => {
+
+    // });
+
+    it ('should return null if the id does not exist', () => {
+        const obj = bucket.save(food);
+        const getObj = bucket.get(66);
+        assert.equal(getObj, null);
+    });
     
     
 });
 
-// creates an `_id` property on the object
-  // * returns `objectToSave` with added `_id` property
+
+
+// * `.get(<id>)`
+// * returns the object that has that id
+// * return `null` if that id does not exist
+// * `.getAll()`
+// * returns array of all objects
+// * return empty array `[]` when no objects
+// * `.remove(<id>)`
+// * removes the object from the store that has that id
+// * return `{ removed: true }` if the object was removed, else return `{ removed: false }` if the 
+// object did not exist

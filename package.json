@@ -8,7 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint .",
+    "test": "mocha",
+    "start": "npm run test -- -w"
   },
   "repository": {
     "type": "git",
