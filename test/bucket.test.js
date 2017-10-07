@@ -35,7 +35,7 @@ describe ('testing constructor function', () => {
     });
 
 
-    it.only ('should return an array of all objects', () => {
+    it ('should return an array of all objects', () => {
         const food2 = 'pizza';
         const food3 = 'beer';
         bucket.save(food);
