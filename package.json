@@ -1,0 +1,27 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "npm test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirrorapps/in-memory-object-store.git"
+  },
+  "author": "Eli Speigel <eli.speigel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirrorapps/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/mirrorapps/in-memory-object-store#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0"
+  },
+  "dependencies": {
+    "uniqid": "^4.1.1"
+  }
+}
