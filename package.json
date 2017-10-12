@@ -1,0 +1,31 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "shortid": "^2.2.8"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robnit/in-memory-object-store.git"
+  },
+  "author": "Robin Miller <rmillerpdx@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robnit/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/robnit/in-memory-object-store#readme"
+}
