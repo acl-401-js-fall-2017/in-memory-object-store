@@ -1,0 +1,29 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "In Memory Object Store ===",
+  "main": "index.js",
+  "scripts": {
+    "lint": "lint",
+    "pretest": "eslint .",
+    "test": "mocha",
+    "start": "npm run test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zac-L/in-memory-object-store.git"
+  },
+  "author": "Zachary Lichens <zacharylichens@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zac-L/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/Zac-L/in-memory-object-store#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8"
+  }
+}
